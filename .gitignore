@@ -1,3 +1,6 @@
 .netrwhist
 oldinit.vim
 .git
+plugin/*
+.DS_Store
+
