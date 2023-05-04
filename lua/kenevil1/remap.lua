@@ -3,7 +3,7 @@
 -- basically i do everything with spacebar
 vim.g.mapleader = " "
 -- super common, lets me navigate file system
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+--vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- USING NVIM-TREE NOW
 
 -- pretty sick rebind
 -- basically lets you move entire highlighted text with J and K, auto indents as well
@@ -41,3 +41,12 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- changes all instances of selected word in document
 vim.keymap.set("n", "<leader>ra", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+--vim.keymap.set('n', '<leader>w', '<C-w>')
+--vim.api.nvim_set_keymap('n', '<leader>w', '<c-w>', {noremap=true})
+
+local wk = require('which-key')
+
+wk.register({
+    w = {'<C-w>', 'Window Control'}},
+{ prefix = "<leader>"})

@@ -42,10 +42,16 @@
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-	ensure_installed = { 
+    ensure_installed = { 
         'lua_ls',
-        'pylsp'
+        'rust_analyzer',
+        'pyright',
+        'eslint',
+        'tsserver',
     }
+})
+require("mason-nvim-dap").setup({
+    ensure_installed = { "python" }
 })
 
 local on_attach = function(_, bufner)
@@ -76,4 +82,21 @@ require('lspconfig').lua_ls.setup {
 			},
 		},
 	}
+}
+
+require('lspconfig').pyright.setup {
+    on_attach = on_attach,
+}
+
+require('lspconfig').tsserver.setup {
+    on_attach = on_attach,
+}
+
+
+require('lspconfig').rust_analyzer.setup {
+    on_attach = on_attach,
+}
+
+require('lspconfig').eslint.setup {
+    on_attach = on_attach,
 }
